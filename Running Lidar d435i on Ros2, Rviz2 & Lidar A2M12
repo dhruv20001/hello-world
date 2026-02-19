@@ -16,7 +16,7 @@ Output: Node is up (means the system is running)
 	source /opt/ros/humble/setup.bash
 	rviz2
 
-TO run Camera and PointCloud
+TO run Camera and PointCloud in Rviz
   -Fixed Frame: camera_link
 
   Add
@@ -49,9 +49,9 @@ Steps to Run Lidar and Camera
 			2. Connect Camera to Ross
        
        New Terminal 3
-        	Enter Command:
-        	3. ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 camera_link laser
-	
+        	3.Enter Command:
+        		ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 camera_link laser
+
        Newe Terminal 4
     		4. Open RViz2
 
