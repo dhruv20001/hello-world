@@ -1,0 +1,33 @@
+Running Lidar d435i on Ros2, Rviz2
+
+ROS 2 humble is installed, 
+
+
+1. Connect Camera to Ross
+Launch RealSenese 
+(source is ROS2)
+	source /opt/ros/humble/setup.bash
+	ros2 launch realsense2_camera rs_launch.py pointcloud.enable:=true
+
+Output: Node is up (means the system is running) 
+
+2. Open RViz2
+(source is ROS2)
+	source /opt/ros/humble/setup.bash
+	rviz2
+
+TO run Camera and PointCloud
+  -Fixed Frame: camera_link
+
+  Add
+   By topic
+      - /camera  
+        -/camera 
+            -image_raw
+              camera
+      - /depth
+        - /color
+          - /points
+              PointCloud2
+
+    
