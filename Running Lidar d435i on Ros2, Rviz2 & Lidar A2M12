@@ -1,0 +1,60 @@
+Running Stereo Camera d435i on Ros2, Display Rviz2
+
+ROS 2 humble is installed, 
+
+
+1. Connect Camera to Ross
+Launch RealSenese 
+(source is ROS2)
+	source /opt/ros/humble/setup.bash
+	ros2 launch realsense2_camera rs_launch.py pointcloud.enable:=true
+
+Output: Node is up (means the system is running) 
+
+2. Open RViz2
+(source is ROS2)
+	source /opt/ros/humble/setup.bash
+	rviz2
+
+TO run Camera and PointCloud
+  -Fixed Frame: camera_link
+
+  Add
+   By topic
+      - /camera  
+        -/camera 
+            -image_raw
+              camera
+      - /depth
+        - /color
+          - /points
+              PointCloud2
+
+Install the package from this https://github.com/Slamtec/sllidar_ros2. 
+Run RpLidar A2M1
+
+	ros2 launch rplidar_ros view_rplidar_a2m12_launch.py
+	**This command is use to open rviz automatically
+
+Run Lidar without opening Rviz2
+	source /opt/ros/humble/setup.bash
+	source ~/ros2_ws/install/setup.bash
+	ros2 launch rplidar_ros rplidar_a2m12_launch.py
+
+Steps to Run Lidar and Camera
+       New Terminal 1
+			1. Run Lidar without opening Rviz2
+       
+       New Terminal 2
+			2. Connect Camera to Ross
+       
+       New Terminal 3
+        	Enter Command:
+        	3. ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 camera_link laser
+	
+       Newe Terminal 4
+    		4. Open RViz2
+
+
+
+    
